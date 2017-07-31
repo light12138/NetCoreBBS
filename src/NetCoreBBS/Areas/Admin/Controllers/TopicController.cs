@@ -12,7 +12,7 @@ using NetCoreBBS.Entities;
 namespace NetCoreBBS.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize("Admin")]
+    [Authorize("Wss")]
     public class TopicController : Controller
     {
         private DataContext _context;

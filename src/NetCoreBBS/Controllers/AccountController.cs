@@ -98,6 +98,11 @@ namespace NetCoreBBS.Controllers
                         //给指定用户添加权限
                         await UserManager.AddClaimAsync(user, new Claim("Admin", "Allowed"));
                     }
+                    else if(user.UserName.ToLower().Equals("wss"))
+                    {
+                        //给指定用户添加权限
+                        await UserManager.AddClaimAsync(user, new Claim("Wss", "Allowed"));
+                    }
                     return RedirectToAction("Login");
                 }
                 AddErrors(result);

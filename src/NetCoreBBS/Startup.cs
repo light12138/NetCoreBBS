@@ -19,6 +19,9 @@ using System.Text.Encodings.Web;
 using NetCoreBBS.Entities;
 using NetCoreBBS.Infrastructure.Repositorys;
 using NetCoreBBS.Interfaces;
+using System.Security.Claims;
+using NetCoreBBS.MyAttributes;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NetCoreBBS
 {
@@ -38,7 +41,22 @@ namespace NetCoreBBS
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // 连接sql
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlConnection")));
+
+            /*
+               services.AddAuthorization(options =>
+                {
+                    options.AddPolicy("RequireAdministratorRole", policy => policy.RequireRole("Administrator"));
+                });
+                              services.AddAuthorization(options =>
+                {
+                    options.AddPolicy("RequireAdministratorRole", policy => policy.RequireRole("Administrator"));
+                });
+             */
+
+
+            //添加身份认证
             services.AddIdentity<User, IdentityRole>(options =>
             {
                 options.Password = new PasswordOptions() {
@@ -62,7 +80,33 @@ namespace NetCoreBBS
                     {
                         authBuilder.RequireClaim("Admin", "Allowed");
                     });
+                options.AddPolicy(
+                    "Wss",
+                    authBuilder =>
+                    {
+                        authBuilder.RequireClaim("Wss", "Allowed");
+                    });
+
+                options.AddPolicy(
+                    "Two",
+                    authBuilder =>
+                    {                       
+                        authBuilder.RequireClaim("Two");
+                    });
+
+                //自定义授权 --claim等于wss
+                options.AddPolicy(
+                   "AsWss",
+                   authBuilder =>
+                   {
+                       authBuilder.Requirements.Add(new SameAsRequirement("wss"));
+                   });
+                // ClaimTypes.DateOfBirth
             });
+
+            services.AddSingleton<IAuthorizationHandler, SameAsHandler>();
+
+
             //文字被编码 https://github.com/aspnet/HttpAbstractions/issues/315
             services.Configure<WebEncoderOptions>(options =>
             {

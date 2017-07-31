@@ -10,7 +10,10 @@ using NetCoreBBS.Infrastructure;
 namespace NetCoreBBS.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize("Admin")]
+    //[Authorize("Admin")]
+    //[Authorize("Two")]
+    //[Authorize(Policy = "Two")]
+    [Authorize("AsWss")]
     public class UserController : Controller
     {
         private readonly DataContext _context;

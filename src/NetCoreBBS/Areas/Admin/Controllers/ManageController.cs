@@ -11,7 +11,7 @@ using NetCoreBBS.Infrastructure;
 namespace NetCoreBBS.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize("Admin")]
+    [Authorize("Wss")]
     public class ManageController : Controller
     {
         private DataContext _context;

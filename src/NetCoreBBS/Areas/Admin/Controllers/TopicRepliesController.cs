@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace NetCoreBBS.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize("Admin")]
+    [Authorize("Wss")]
     public class TopicRepliesController : Controller
     {
         private readonly DataContext _context;
