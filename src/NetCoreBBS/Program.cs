@@ -14,7 +14,7 @@ namespace NetCoreBBS
             var host = new WebHostBuilder()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseUrls("http://*:80")
+                .UseUrls("http://*:8020")
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();

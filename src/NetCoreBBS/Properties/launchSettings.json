@@ -17,11 +17,16 @@
     },
     "NetCoreBBS": {
       "commandName": "Project",
+      "workingDirectory": "D:\\NetCoreBBS\\src\\NetCoreBBS",
       "launchBrowser": true,
-      "launchUrl": "http://localhost",
+      "launchUrl": "http://localhost:8020",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "http://localhost:8020"
+    },
+    "tools": {
+      "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.0.0-preview2-final"
     }
   }
 }

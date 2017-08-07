@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.15
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{94F5C8A4-D158-4A10-AD26-C635A376CC92}"
 EndProject
@@ -20,9 +20,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D25B2B42
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "tests\UnitTests\UnitTests.csproj", "{152AAF50-21A3-477D-BB56-A25E56D4B611}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityService", "IdentityService\IdentityService.csproj", "{A86AECF8-0519-4971-91CC-591C60E82926}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityService", "IdentityService\IdentityService.csproj", "{A86AECF8-0519-4971-91CC-591C60E82926}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityClient", "IdentityClient\IdentityClient.csproj", "{3DF9FA5E-23B7-4691-9D29-1FC3A27B0C15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityClient", "IdentityClient\IdentityClient.csproj", "{3DF9FA5E-23B7-4691-9D29-1FC3A27B0C15}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiOauth", "WebApiOauth\WebApiOauth.csproj", "{14B9E317-3019-4D69-BBF2-5AEED3F8F7DF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "OauthCon\Client.csproj", "{FD9540B4-D3CE-4CD6-85DB-4ED8B903092C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServe4Demo2", "IdentityServe4Demo2\IdentityServe4Demo2.csproj", "{83517FFC-E654-408E-A099-EBC5FA155029}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +60,18 @@ Global
 		{3DF9FA5E-23B7-4691-9D29-1FC3A27B0C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DF9FA5E-23B7-4691-9D29-1FC3A27B0C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DF9FA5E-23B7-4691-9D29-1FC3A27B0C15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14B9E317-3019-4D69-BBF2-5AEED3F8F7DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14B9E317-3019-4D69-BBF2-5AEED3F8F7DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14B9E317-3019-4D69-BBF2-5AEED3F8F7DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14B9E317-3019-4D69-BBF2-5AEED3F8F7DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD9540B4-D3CE-4CD6-85DB-4ED8B903092C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD9540B4-D3CE-4CD6-85DB-4ED8B903092C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD9540B4-D3CE-4CD6-85DB-4ED8B903092C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD9540B4-D3CE-4CD6-85DB-4ED8B903092C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83517FFC-E654-408E-A099-EBC5FA155029}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83517FFC-E654-408E-A099-EBC5FA155029}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83517FFC-E654-408E-A099-EBC5FA155029}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83517FFC-E654-408E-A099-EBC5FA155029}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,5 +83,8 @@ Global
 		{152AAF50-21A3-477D-BB56-A25E56D4B611} = {D25B2B42-A638-4F40-B51C-DCF41A3C8F4C}
 		{A86AECF8-0519-4971-91CC-591C60E82926} = {D25B2B42-A638-4F40-B51C-DCF41A3C8F4C}
 		{3DF9FA5E-23B7-4691-9D29-1FC3A27B0C15} = {D25B2B42-A638-4F40-B51C-DCF41A3C8F4C}
+		{14B9E317-3019-4D69-BBF2-5AEED3F8F7DF} = {D25B2B42-A638-4F40-B51C-DCF41A3C8F4C}
+		{FD9540B4-D3CE-4CD6-85DB-4ED8B903092C} = {D25B2B42-A638-4F40-B51C-DCF41A3C8F4C}
+		{83517FFC-E654-408E-A099-EBC5FA155029} = {D25B2B42-A638-4F40-B51C-DCF41A3C8F4C}
 	EndGlobalSection
 EndGlobal

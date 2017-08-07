@@ -59,9 +59,10 @@ namespace NetCoreBBS
             //添加身份认证
             services.AddIdentity<User, IdentityRole>(options =>
             {
-                options.Password = new PasswordOptions() {
+                options.Password = new PasswordOptions()
+                {
                     RequireNonAlphanumeric = false,
-                    RequireUppercase=false
+                    RequireUppercase = false
                 };
             }).AddEntityFrameworkStores<DataContext>().AddDefaultTokenProviders();
             // Add framework services.
@@ -90,7 +91,7 @@ namespace NetCoreBBS
                 options.AddPolicy(
                     "Two",
                     authBuilder =>
-                    {                       
+                    {
                         authBuilder.RequireClaim("Two");
                     });
 
@@ -125,6 +126,10 @@ namespace NetCoreBBS
             InitializeNetCoreBBSDatabase(app.ApplicationServices);
             app.UseDeveloperExceptionPage();
 
+
+
+          
+
             app.UseStaticFiles();
             app.UseIdentity();
             app.UseStatusCodePages();
@@ -143,7 +148,7 @@ namespace NetCoreBBS
 
         private void InitializeNetCoreBBSDatabase(IServiceProvider serviceProvider)
         {
-            var sql= Configuration.GetConnectionString("SqlConnection");
+            var sql = Configuration.GetConnectionString("SqlConnection");
             using (var serviceScope = serviceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
                 var db = serviceScope.ServiceProvider.GetService<DataContext>();
