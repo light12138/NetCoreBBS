@@ -20,6 +20,7 @@ namespace IdentityServe4Demo2
 
                     // no interactive user, use the clientid/secret for authentication
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
+                  
 
                     // secret for authentication
                     ClientSecrets =
@@ -29,6 +30,17 @@ namespace IdentityServe4Demo2
 
                     // scopes that client has access to
                     AllowedScopes = { "api1" }
+                },
+                new Client
+                {
+                    ClientId="ro.client",
+                      AllowedGrantTypes=GrantTypes.ResourceOwnerPassword,
+                    //通过密码连接
+                    ClientSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
+                    AllowedScopes={"api1"}
                 }
             };
         }
@@ -53,13 +65,19 @@ namespace IdentityServe4Demo2
                     Claims =
                     {
                        // new Claim 
+                       new Claim("admin","wss")
                     }
                 },
                 new TestUser
                 {
                     SubjectId = "2",
                     Username = "bob",
-                    Password = "password"
+                    Password = "password",
+                    Claims =
+                    {
+                       // new Claim 
+                       new Claim("admin","wzl")
+                    }
                 }
             };
         }

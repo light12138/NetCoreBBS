@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace OauthCon
 {
@@ -15,11 +16,12 @@ namespace OauthCon
         public static async void GuoDuAsync()
         {
             var disco = DiscoveryClient.GetAsync("http://localhost:5000").Result;
-            await RequestAsync();
+            // await RequestAsync();
+            await Request1Async();
             Console.ReadKey();
         }
 
-        public static async System.Threading.Tasks.Task RequestAsync()
+        public static async Task RequestAsync()
         {
             var disco =  DiscoveryClient.GetAsync("http://localhost:5000").Result;
             var tokenClient = new TokenClient(disco.TokenEndpoint, "client", "secret");
@@ -46,6 +48,20 @@ namespace OauthCon
                 Console.WriteLine(JArray.Parse(content));
             }
 
+        }
+
+        public static async  Task Request1Async()
+        {
+            var disco = DiscoveryClient.GetAsync("http://localhost:5000").Result;
+            var tokenClient = new TokenClient(disco.TokenEndpoint, "ro.client", "secret");
+            var tokenResponse = tokenClient.RequestResourceOwnerPasswordAsync("alice", "password", "api1").Result;
+            if (tokenResponse.IsError)
+            {
+                Console.WriteLine(tokenResponse.Error);
+                return;
+            }
+            Console.WriteLine(tokenResponse.Json);
+            Console.WriteLine("\n\n");
         }
     }
 }
